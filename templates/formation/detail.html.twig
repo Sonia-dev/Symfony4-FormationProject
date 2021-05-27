@@ -1,0 +1,39 @@
+
+{% extends 'template.html.twig' %}
+{% block title %}  Detail {% endblock %}
+{% block body %}
+<div class="container">
+<table>
+<tbody>
+<tr>
+<th> id   </th>
+<td> {{formation.id}}   <td>
+</tr>
+<tr>
+<th> titre   </th>
+<td> {{formation.titre}}   <td>
+</tr>
+<tr>
+<th> description   </th>
+<td> {{formation.description}}   </td>
+<tr>
+<tr>
+<th> image   </th>
+<td> <img src="{{asset('uploads/')}}{{formation.image}}" style="width:300px; height:300px" alt=""> </td>
+<tr>
+<th>
+
+ <a href="{{ path('edit_formation', {'id':formation.id }) }}"> editer</a>
+<a href="{{ path('supprimer_formation', {'id':formation.id }) }}" onclick ="return confirm('etes  vous sure');"> supprimer</a>
+               
+<a href="{{ path('formation_list') }}"> retour</a></th>
+</tr>
+</tbody>
+
+</table>
+
+
+</div>
+
+
+{% endblock %}

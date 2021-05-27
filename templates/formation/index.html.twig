@@ -1,0 +1,49 @@
+
+{% extends 'template.html.twig' %}
+{% block title %} Liste des Formations{% endblock %}
+
+{% block body %}
+ <h1>Formations</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>titre</th>
+                <th>description</th>
+        
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+ {% for formation in Formations %}
+        
+            <tr>
+                <td>{{ formation.id }}</td>
+                <td>{{ formation.titre }}</td>
+                <td>{{ formation.description }}</td>
+                
+    <td><img src="{{asset('uploads/')}}{{formation.image}}" style="width:300px; height:300px" alt=""></td>
+ 
+ 
+
+
+                <td>
+                <a href="{{ path('detail_formation' , {'id': formation.id}) }}"> show</a>
+                <a href="{{ path('edit_formation', {'id':formation.id }) }}"> editer</a>
+                <a href="{{ path('supprimer_formation', {'id':formation.id }) }}" onclick ="return confirm('etes  vous sure');"> supprimer</a>
+               
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">aucune formations</td>
+            </tr>
+        {% endfor %}
+
+       
+        </tbody>
+    </table>
+
+    <a href="{{ path('new_formation') }}">ajouter</a>
+
+{% endblock %}

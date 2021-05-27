@@ -1,0 +1,12 @@
+
+
+{% block title %}Editer{% endblock %}
+
+{% block body %}
+    <h1>EDIT</h1>
+    {{form_start(form)}}
+    {{form_widget(form)}}
+     <button class="btn">{{ button_label|default('Update') }}</button>
+    
+    {{form_end(form)}}
+{% endblock %}

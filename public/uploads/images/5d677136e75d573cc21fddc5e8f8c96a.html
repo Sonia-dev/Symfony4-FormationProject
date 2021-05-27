@@ -1,0 +1,28 @@
+easy admin bundle
+SensioFrameworkExtraBundle
+// src/Controller/AdminController.php
+// ...
+
++ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
++ /**
++  * Require ROLE_ADMIN for *every* controller method in this class.
++  *
++  * @IsGranted("ROLE_ADMIN")
++  */
+class AdminController extends AbstractController
+{
++     /**
++      * Require ROLE_ADMIN for only this controller method.
++      *
++      * @IsGranted("ROLE_ADMIN")
++      */
+    public function adminDashboard()
+    {
+        // ...
+    }
+}
+and in twig
+{% if is_granted('ROLE_ADMIN') %}
+    <a href="...">Delete</a>
+{% endif %}
